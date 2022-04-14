@@ -1,0 +1,16 @@
+.dropdown_container {
+  margin: 50px auto;
+}
+
+.dropdown_list {
+  padding: 5px;
+  width: 250px;
+  height: 40px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  color: dimgray;
+}
+
+.dropdown_list:focus {
+  outline: none;
+}
