@@ -36,9 +36,13 @@ const CONTENTS = [
 
 function List(props) {
   const { listKey, id, onClick, distance, children } = props;
-  console.log(listKey);
   return (
-    <ListItem listKey={listKey} id={id} onClick={onClick} distance={distance}>
+    <ListItem
+      data-listkey={listKey}
+      id={id}
+      onClick={onClick}
+      distance={distance}
+    >
       {children}
     </ListItem>
   );
@@ -59,8 +63,8 @@ export default function Tab() {
 
   function handleTabClick(e) {
     const target = e.target;
-    console.log(target);
-    const { id, listKey } = target;
+    const { id } = target;
+    const listKey = target.attributes.getNamedItem("data-listKey").value;
     const [prevIndex, prevDistance] = [
       selectedTab.currentIndex,
       selectedTab.distance,
@@ -82,6 +86,7 @@ export default function Tab() {
             <List
               key={content.id}
               listKey={listKey}
+              data-listkey={listKey}
               id={content.id}
               onClick={handleTabClick}
             >
