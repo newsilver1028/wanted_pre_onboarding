@@ -106,12 +106,14 @@ const SelectedItemWrapper = styled.div`
   width: 260px;
   border: 1px solid darkgray;
   border-radius: 5px;
+
   .selected-item {
     padding: 12px 0px 0px 10px;
     height: 30px;
     color: gray;
     font-size: 1rem;
   }
+
   .dropdown-icon {
     margin: 10px;
   }
@@ -126,6 +128,7 @@ const ItemsWrapper = styled.div`
   background-color: white;
   box-shadow: rgb(0, 0, 0, 0.15) 0px 5px 5px;
   z-index: 3;
+
   .input-wrapper {
     padding: 10px 0px 0px 10px;
     height: 30px;
@@ -144,10 +147,12 @@ const ItemsWrapper = styled.div`
       color: lightgrey;
     }
   }
+
   .list-wrapper {
     display: flex;
     flex-flow: column wrap;
   }
+
   .list-contents {
     padding: 10px 0px 10px 40px;
     color: gray;
