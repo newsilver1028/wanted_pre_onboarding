@@ -7,56 +7,6 @@ import styled from "styled-components";
 
 library.add(faEyeSlash, faEye, faCircleCheck);
 
-const InputWrapper = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  margin: 50px auto;
-  width: 250px;
-`;
-
-const LabelWrapper = styled.label`
-  position: relative;
-  margin: 20px 0px;
-`;
-
-const LabelText = styled.span`
-  color: gray;
-`;
-
-const InputText = styled.input`
-  width: 250px;
-  height: 30px;
-  border: 1px solid darkgray;
-  border-radius: 5px;
-  &:focus {
-    outline: none;
-  }
-`;
-
-const IconDiv = styled.div`
-  position: absolute;
-  right: 0px;
-  top: 28px;
-  width: 30px;
-`;
-
-function EmailIcon({ isRightFormatted }) {
-  return (
-    <FontAwesomeIcon
-      icon={faCircleCheck}
-      color={isRightFormatted ? "lightsteelblue" : "darkgray"}
-    />
-  );
-}
-
-function InputEmail({ onChange }) {
-  return <InputText type="email" onChange={onChange} />;
-}
-
-function InputPassword({ isVisible }) {
-  return <InputText type={isVisible ? "text" : "password"} />;
-}
-
 export default function Input() {
   const [isVisible, setIsVisible] = useState(false);
   const [isRightFormatted, setIsRightFormatted] = useState(false);
@@ -95,3 +45,54 @@ export default function Input() {
     </InputWrapper>
   );
 }
+
+function EmailIcon({ isRightFormatted }) {
+  return (
+    <FontAwesomeIcon
+      icon={faCircleCheck}
+      color={isRightFormatted ? "lightsteelblue" : "darkgray"}
+    />
+  );
+}
+
+function InputEmail({ onChange }) {
+  return <InputText type="email" onChange={onChange} />;
+}
+
+function InputPassword({ isVisible }) {
+  return <InputText type={isVisible ? "text" : "password"} />;
+}
+
+const InputWrapper = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  margin: 20px auto;
+  width: 250px;
+`;
+
+const LabelWrapper = styled.label`
+  position: relative;
+  margin: 20px 0px;
+`;
+
+const LabelText = styled.span`
+  color: gray;
+`;
+
+const InputText = styled.input`
+  padding-left: 10px;
+  width: 250px;
+  height: 30px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  &:focus {
+    outline: none;
+  }
+`;
+
+const IconDiv = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 28px;
+  width: 30px;
+`;
