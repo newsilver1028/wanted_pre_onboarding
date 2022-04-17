@@ -96,6 +96,7 @@ const DropdownWrapper = styled.div`
   position: relative;
   margin: 20px auto;
   width: 250px;
+  height: 400px;
 `;
 
 const SelectedItemWrapper = styled.div`
