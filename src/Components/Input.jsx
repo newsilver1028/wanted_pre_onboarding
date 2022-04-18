@@ -9,15 +9,15 @@ library.add(faEyeSlash, faEye, faCircleCheck);
 
 export default function Input() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isRightFormatted, setIsRightFormatted] = useState(false);
+  const [isEmailFormatted, setIsEmailFormatted] = useState(false);
 
   function handleInputEmail(e) {
     const targetValue = e.target.value;
     const format =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    setIsRightFormatted(format.test(targetValue));
-    if (isRightFormatted) {
+    setIsEmailFormatted(format.test(targetValue));
+    if (isEmailFormatted) {
       return;
     }
   }
@@ -28,7 +28,7 @@ export default function Input() {
         <LabelText>E-mail</LabelText>
         <InputEmail onChange={handleInputEmail} />
         <IconDiv>
-          <EmailIcon isRightFormatted={isRightFormatted} />
+          <EmailIcon isEmailFormatted={isEmailFormatted} />
         </IconDiv>
       </LabelWrapper>
       <LabelWrapper>
@@ -46,11 +46,11 @@ export default function Input() {
   );
 }
 
-function EmailIcon({ isRightFormatted }) {
+function EmailIcon({ isEmailFormatted }) {
   return (
     <FontAwesomeIcon
       icon={faCircleCheck}
-      color={isRightFormatted ? "lightsteelblue" : "darkgray"}
+      color={isEmailFormatted ? "lightsteelblue" : "darkgray"}
     />
   );
 }
