@@ -8,7 +8,7 @@ import Toggle from "./Components/Toggle";
 function App() {
   return (
     <AppWrapper>
-      <Toggle items={TOGGLE_ITEMS} />
+      <Toggle items={TOGGLE_ITEMS} toggleWidth={TOGGLE_WIDTH} />
       <Tab items={TAB_ITEMS} tabWidth={TAB_WIDTH} />
       <Slider />
       <Input />
@@ -29,6 +29,8 @@ const TOGGLE_ITEMS = [
     name: "상세",
   },
 ];
+
+const TOGGLE_WIDTH = 300;
 
 const TAB_ITEMS = [
   {

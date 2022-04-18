@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Toggle({ items }) {
+export default function Toggle({ items, toggleWidth }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <ToggleWrapper>
+    <ToggleWrapper toggleWidth={toggleWidth}>
       <input
         type="checkbox"
         checked={isChecked}
@@ -31,7 +31,7 @@ export default function Toggle({ items }) {
 const ToggleWrapper = styled.div`
   margin: 20px auto;
   padding: 2px;
-  width: 300px;
+  width: ${(props) => props.toggleWidth}px;
   height: 40px;
   border-radius: 40px;
   background-color: lightsteelblue;
@@ -55,13 +55,13 @@ const ToggleWrapper = styled.div`
   .switch-input {
     display: none;
     &:checked + .switch-label .toggle-ball {
-      transform: translateX(150px);
+      transform: translateX(${(props) => props.toggleWidth / 2}px);
     }
   }
 
   .toggle-ball {
     position: absolute;
-    width: 150px;
+    width: ${(props) => props.toggleWidth / 2}px;
     height: 40px;
     border-radius: 30px;
     background-color: white;
