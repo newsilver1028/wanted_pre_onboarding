@@ -19,7 +19,16 @@ function App() {
 
 export default App;
 
-const TOGGLE_ITEMS = ["기본", "상세"];
+const TOGGLE_ITEMS = [
+  {
+    id: "basic",
+    name: "기본",
+  },
+  {
+    id: "detail",
+    name: "상세",
+  },
+];
 
 const TAB_ITEMS = [
   {

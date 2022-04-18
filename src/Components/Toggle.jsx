@@ -17,8 +17,8 @@ export default function Toggle({ items }) {
         <div className="toggle-container">
           {items.map((item) => {
             return (
-              <span key={item} className="toggle-contents">
-                {item}
+              <span key={item.id} className="toggle-contents">
+                {item.name}
               </span>
             );
           })}
