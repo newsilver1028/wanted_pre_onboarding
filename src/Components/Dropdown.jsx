@@ -106,6 +106,7 @@ const SelectedItemWrapper = styled.div`
   width: 260px;
   border: 1px solid darkgray;
   border-radius: 5px;
+  cursor: pointer;
 
   .selected-item {
     padding: 12px 0px 0px 10px;
@@ -157,6 +158,7 @@ const ItemsWrapper = styled.div`
     padding: 10px 0px 10px 40px;
     color: gray;
     font-size: 1rem;
+    cursor: pointer;
     &:hover {
       background-color: rgb(239, 236, 236);
     }
