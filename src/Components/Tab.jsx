@@ -34,10 +34,9 @@ export default function Tab({ items, tabWidth }) {
           return (
             <List
               key={item.id}
-              listKey={listKey}
               data-listkey={listKey}
               id={item.id}
-              onClick={handleTabClick}
+              onClick={(e) => handleTabClick(e)}
               listWidth={listWidth}
             >
               {item.name}
