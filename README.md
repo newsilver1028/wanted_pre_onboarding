@@ -1,6 +1,9 @@
 # wanted_pre_onboarding
 
-`styled-components`
+- 컴포넌트에 렌더링할 아이템은 prop으로 받아 컴포넌트의 재사용성을 높였다.
+- 아이템의 개수 혹은 텍스트 길이의 변동성이 높은 Toggle과 Tab은 width를 prop으로 받아 변경이 용이하게 했다.
+- `styled-components` 사용.
+- `font awesome icon` 사용.
 
 ## Toggle
 
@@ -39,7 +42,6 @@ checkbox에 `read-only` 속성을 주어 해결했다.
     currentIndex : 현재 클릭한 탭 인덱스
     distance : 탭의 underline이 이동할 방향과 거리
   }
-
   ```
 
 - 아이템을 클릭할 때 **(현재 아이템의 index) - (이전에 클릭한 아이템의 index) \* 한 아이템 당 width** 로 방향과 거리를 계산해 tranformX에 prop으로 전달했다.
@@ -51,7 +53,8 @@ checkbox에 `read-only` 속성을 주어 해결했다.
 
 ![화면 기록 2022-04-14 오후 7 37 24](https://user-images.githubusercontent.com/79626675/163750739-89d5517e-cd90-46fb-abc6-10a63ba9985d.gif)
 
-data-set attribute를 사용하여 해결하였다.
+`<li>` 태그에서 listKey 속성이 유효한 것이 아니기 때문에 undefined로 전달되었다.  
+사용자에게 보여질 필요가 없는 값이기 때문에 data-set attribute를 사용하여 해결하였다.
 
 ### 🚀 needs to be improved
 
@@ -70,6 +73,8 @@ data-set attribute를 사용하여 해결하였다.
 - section div와 하단 버튼을 `display: flex; justify-content: space-between;` 스타일 속성으로 화면 크기가 변경되어도 픽셀이 맞을 수 있게 배치했다.
 
 ![화면 기록 2022-04-18 오후 1 06 14](https://user-images.githubusercontent.com/79626675/163752939-5e11dc0f-d018-43d6-a3c9-3b44fe7bf877.gif)
+
+- 기본 슬라이더의 디자인만 숨기고 bar와 thumb를 커스텀 하는 것이 까다로웠다.
 
 ## Input
 
@@ -92,3 +97,4 @@ data-set attribute를 사용하여 해결하였다.
   - selected : 드롭다운 메뉴 아이템을 클릭 시 변경.
   - toggle : true or false로 드롭다운 클릭 시 선택 메뉴 렌더링여부를 결정.
 - html의 select 태그는 option에 input 태그를 children으로 받지 못하고, 제약이 많기 때문에 사용 불가능했다.
+- 기본 값을 검색여부에 상관없이 렌더링 하는 것이 까다로웠다.
