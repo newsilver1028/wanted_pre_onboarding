@@ -14,21 +14,25 @@ export default function Dropdown({ items, defaultValue }) {
   const [selected, setSelected] = useState(defaultValue.name);
   const [toggle, setToggle] = useState(false);
 
+  function handleToggleClick() {
+    setToggle(true);
+  }
+
   function handleInputText(e) {
     const inputValue = e.target.value;
-    setValue(() => inputValue);
-    setToggle(() => true);
+    setValue(inputValue);
+    setToggle(true);
   }
 
   function handleDropdownItemClick(items) {
-    setSelected(() => items.name);
-    setValue(() => "");
-    setToggle(() => false);
+    setSelected(items.name);
+    setValue("");
+    setToggle(false);
   }
 
   return (
     <DropdownWrapper>
-      <SelectedItemWrapper onClick={() => setToggle(true)}>
+      <SelectedItemWrapper onClick={handleToggleClick}>
         <div className="selected-item">{selected}</div>
         <FontAwesomeIcon
           className="dropdown-icon"
@@ -72,7 +76,7 @@ export default function Dropdown({ items, defaultValue }) {
 
 const ItemsList = ({ items, value, toggle, onClick }) => {
   const filteredItems = items.filter((item) =>
-    item.name.toString().toLowerCase().startsWith(value.toLowerCase())
+    item.name.toString().toLowerCase().includes(value.toLowerCase())
   );
   if (filteredItems.length) {
     return (

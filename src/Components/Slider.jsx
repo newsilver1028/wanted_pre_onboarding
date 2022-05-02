@@ -6,12 +6,12 @@ export default function Slider() {
 
   function handleInputSlider(e) {
     const targetValue = e.target.value;
-    setValue(() => targetValue);
+    setValue(targetValue);
   }
 
   function handleSectionButtonClick(e) {
     const targetValue = e.target.value;
-    setValue(() => targetValue);
+    setValue(targetValue);
   }
 
   return (

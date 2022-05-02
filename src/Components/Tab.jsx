@@ -12,11 +12,11 @@ export default function Tab({ items, tabWidth }) {
   function handleTabClick(e) {
     const target = e.target;
     const { id } = target;
-    const listKey = target.attributes.getNamedItem("data-listKey").value;
     const [prevIndex, prevDistance] = [
       selectedTab.currentIndex,
       selectedTab.distance,
     ];
+    const listKey = target.attributes.getNamedItem("data-list-key").value;
     const currentDistance = getUnderLineDistance(prevIndex, listKey, listWidth);
 
     setSelectedTab({
@@ -34,9 +34,9 @@ export default function Tab({ items, tabWidth }) {
           return (
             <List
               key={item.id}
-              data-listkey={listKey}
+              listKey={listKey}
               id={item.id}
-              onClick={(e) => handleTabClick(e)}
+              onTabClick={handleTabClick}
               listWidth={listWidth}
             >
               {item.name}
@@ -59,12 +59,12 @@ function getUnderLineDistance(prev, current, width) {
 }
 
 function List(props) {
-  const { listKey, id, onClick, distance, listWidth, children } = props;
+  const { listKey, id, onTabClick, distance, listWidth, children } = props;
   return (
     <ListItem
-      data-listkey={listKey}
+      data-list-key={listKey}
       id={id}
-      onClick={onClick}
+      onClick={onTabClick}
       distance={distance}
       listWidth={listWidth}
     >

@@ -22,6 +22,10 @@ export default function Input() {
     }
   }
 
+  function handleVicibleIconClick() {
+    setIsVisible(true);
+  }
+
   return (
     <InputWrapper>
       <LabelWrapper>
@@ -34,7 +38,7 @@ export default function Input() {
       <LabelWrapper>
         <LabelText>Password</LabelText>
         <InputPassword isVisible={isVisible} />
-        <IconDiv onClick={() => setIsVisible(true)}>
+        <IconDiv onClick={handleVicibleIconClick}>
           {isVisible ? (
             <FontAwesomeIcon icon={faEye} color="lightsteelblue" />
           ) : (

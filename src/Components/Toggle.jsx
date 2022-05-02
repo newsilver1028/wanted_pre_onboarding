@@ -4,6 +4,10 @@ import styled from "styled-components";
 export default function Toggle({ items, toggleWidth }) {
   const [isChecked, setIsChecked] = useState(false);
 
+  function handletoggleClick() {
+    setIsChecked(!isChecked);
+  }
+
   return (
     <ToggleWrapper toggleWidth={toggleWidth}>
       <input
@@ -12,7 +16,7 @@ export default function Toggle({ items, toggleWidth }) {
         className="switch-input"
         readOnly
       />
-      <label className="switch-label" onClick={() => setIsChecked(!isChecked)}>
+      <label className="switch-label" onClick={handletoggleClick}>
         <div className="toggle-ball"></div>
         <div className="toggle-container">
           {items.map((item) => {
