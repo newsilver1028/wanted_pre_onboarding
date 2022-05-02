@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { getUnderLineDistance } from "../Compute/getUnderLineDistance";
 
 export default function Tab({ items, tabWidth }) {
   const [selectedTab, setSelectedTab] = useState({
@@ -30,11 +31,10 @@ export default function Tab({ items, tabWidth }) {
     <TabWrapper tabWidth={tabWidth}>
       <ul className="tab-list-container">
         {items.map((item, index) => {
-          const listKey = JSON.stringify(index);
           return (
             <List
               key={item.id}
-              listKey={listKey}
+              listKey={index}
               id={item.id}
               onTabClick={handleTabClick}
               listWidth={listWidth}
@@ -50,12 +50,6 @@ export default function Tab({ items, tabWidth }) {
       ></UnderLine>
     </TabWrapper>
   );
-}
-
-function getUnderLineDistance(prev, current, width) {
-  const [prevIndexNumber, currentIndexNumber] = [Number(prev), Number(current)];
-  const distance = (currentIndexNumber - prevIndexNumber) * width;
-  return distance;
 }
 
 function List(props) {

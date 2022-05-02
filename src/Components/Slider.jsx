@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-export default function Slider() {
+export default function Slider({ sections }) {
   const [value, setValue] = useState(50);
 
   function handleInputSlider(e) {
@@ -32,28 +32,28 @@ export default function Slider() {
           onChange={handleInputSlider}
         />
         <SectionDivWrapper>
-          <SectionDiv value={1} currentValue={value}></SectionDiv>
-          <SectionDiv value={25} currentValue={value}></SectionDiv>
-          <SectionDiv value={50} currentValue={value}></SectionDiv>
-          <SectionDiv value={75} currentValue={value}></SectionDiv>
-          <SectionDiv value={100} currentValue={value}></SectionDiv>
+          {sections.map((section) => {
+            return (
+              <SectionDiv
+                key={section}
+                value={section}
+                currentValue={value}
+              ></SectionDiv>
+            );
+          })}
         </SectionDivWrapper>
         <SectionButtonWrapper>
-          <SectionButton value={1} onClick={handleSectionButtonClick}>
-            1%
-          </SectionButton>
-          <SectionButton value={25} onClick={handleSectionButtonClick}>
-            25%
-          </SectionButton>
-          <SectionButton value={50} onClick={handleSectionButtonClick}>
-            50%
-          </SectionButton>
-          <SectionButton value={75} onClick={handleSectionButtonClick}>
-            75%
-          </SectionButton>
-          <SectionButton value={100} onClick={handleSectionButtonClick}>
-            100%
-          </SectionButton>
+          {sections.map((section) => {
+            return (
+              <SectionButton
+                key={section}
+                value={section}
+                onClick={handleSectionButtonClick}
+              >
+                {section}%
+              </SectionButton>
+            );
+          })}
         </SectionButtonWrapper>
       </SliderWrapper>
     </Container>

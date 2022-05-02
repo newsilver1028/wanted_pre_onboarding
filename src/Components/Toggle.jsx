@@ -5,7 +5,7 @@ export default function Toggle({ items, toggleWidth }) {
   const [isChecked, setIsChecked] = useState(false);
 
   function handletoggleClick() {
-    setIsChecked(!isChecked);
+    setIsChecked((prev) => !prev);
   }
 
   return (

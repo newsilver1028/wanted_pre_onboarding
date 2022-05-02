@@ -10,7 +10,7 @@ function App() {
     <AppWrapper>
       <Toggle items={TOGGLE_ITEMS} toggleWidth={TOGGLE_WIDTH} />
       <Tab items={TAB_ITEMS} tabWidth={TAB_WIDTH} />
-      <Slider />
+      <Slider sections={SLIDER_SECTIONS} />
       <Input />
       <Dropdown items={DROPDOWN_ITEMS} defaultValue={DEFAULT_VALUE} />
     </AppWrapper>
@@ -80,6 +80,8 @@ const DEFAULT_VALUE = {
   id: "All Symbols",
   name: "All Symbols",
 };
+
+const SLIDER_SECTIONS = [1, 25, 50, 75, 100];
 
 const AppWrapper = styled.div`
   display: flex;
