@@ -1,4 +1,4 @@
-function getUnderLineDistance(prev, current, width) {
+export default function getUnderLineDistance(prev, current, width) {
   const distance = (current - prev) * width;
   return distance;
 }
