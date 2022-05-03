@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { getUnderLineDistance } from "../Compute/getUnderLineDistance";
+import { getUnderLineDistance } from "../Features/getUnderLineDistance";
 
 export default function Tab({ items, tabWidth }) {
   const [selectedTab, setSelectedTab] = useState({
